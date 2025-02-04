@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: rag-service
+spec:
+  selector:
+    app.kubernetes.io/instance: ollama
+    app.kubernetes.io/name: ollama
+  ports:
+    - protocol: TCP
+      port: 8501  # This is the port the service will expose within the cluster
+      targetPort: 8501  # This is the port the container is actually listening on
+  type: ClusterIP  # The default type is ClusterIP, so this line is optional

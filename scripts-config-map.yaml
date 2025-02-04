@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: scripts-config-map
+data:
+  post-start.sh: |
+    #!/bin/sh
+    echo "Running post-start script..."
+
+    # Install necessary packages
+    apt update && apt install -y python3 pip git
+
+    # Clone and set up the ChatPDF RAG repo
+    cd /root/.ollama
+    git clone https://github.com/paquino11/chatpdf-rag-deepseek-r1.git
+    cd chatpdf-rag-deepseek-r1
+    pip install -r requirements.txt
+
+    # Start the Streamlit app in the background
+    nohup streamlit run /root/.ollama/rag/chatpdf-rag-deepseek-r1/app.py > /root/.ollama/chatpdf.log 2>&1 &
