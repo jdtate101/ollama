@@ -27,7 +27,7 @@ Next download and create the configmap in the ollama namespace (called script-co
 
 After the Ollama deployment comes up you need to adjust it to match the deployment example, specifically the volumeMounts and lifecycle sections:
 
-`lifecycle:
+``lifecycle:
           postStart:
             exec:
               command:
@@ -39,7 +39,7 @@ After the Ollama deployment comes up you need to adjust it to match the deployme
                   done
                   echo "deepseek-r1:latest" | xargs -n1 /bin/ollama pull
                   echo "mxbai-embed-large" | xargs -n1 /bin/ollama pull
-                  /bin/sh /scripts/post-start.sh`
+                  /bin/sh /scripts/post-start.sh``
 
 `volumeMounts:
         - mountPath: /root/.ollama
