@@ -1,10 +1,6 @@
 # Ollama RAG application with Deepseek-R1 on k8s
 
-This is a basic kubernetes example of a Retrieval-Augmented Generation (RAG) application using ollama, langchain and streamlit. I didn't write the python, I just adapted the work from:
-
-https://github.com/paquino11/chatpdf-rag-deepseek-r1
-
-Into a working k8s deployment. I've used the oc commandline (RedHat OpenShift), but kubectl will work just as well for other distributions. 
+This is a basic kubernetes example of a Retrieval-Augmented Generation (RAG) application using ollama, langchain and streamlit. I didn't write the python, I just adapted the work from https://github.com/paquino11/chatpdf-rag-deepseek-r1 into a working k8s deployment. I've used the oc commandline (RedHat OpenShift), but kubectl will work just as well for other distributions. 
 
 ## Instructions
 
