@@ -9,21 +9,21 @@ Into a working k8s deployment. I've used the oc commandline (RedHat OpenShift), 
 ## Instructions
 
 Create namespace for ollama
-`oc create ns ollama`
+```oc create ns ollama```
 
 add helm repo
 
-`helm repo add ollama-helm https://otwld.github.io/ollama-helm/`
+```helm repo add ollama-helm https://otwld.github.io/ollama-helm/```
 
-`helm repo update`
+```helm repo update```
 
 download values from this repo and adjust for persistence and include GPU if you have one (recommended)
 
-`helm install ollama ollama-helm/ollama -f values.yaml -n ollama`
+```helm install ollama ollama-helm/ollama -f values.yaml -n ollama```
 
 Next download and create the configmap in the ollama namespace (called script-config-map.yaml) and apply it:
 
-`oc apply -f script-config-map.yaml -n ollama`
+```oc apply -f script-config-map.yaml -n ollama```
 
 After the Ollama deployment comes up you need to adjust it to match the deployment example, specifically the volumeMounts and lifecycle sections:
 
@@ -55,7 +55,7 @@ This will run a set of additional requirements installs post startup of the pod.
 
 Next we create a clusterIP service for the deployment selector:
 
-`oc apply -f rag-service.yaml -n ollama`
+```oc apply -f rag-service.yaml -n ollama```
 
 Once this is up you can create a route/ingress to point to the new RAG service and you should have access to the application. 
 
