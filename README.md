@@ -17,16 +17,15 @@ add helm repo
 
 `helm repo update`
 
-download values https://github.com/jdtate101/ollama/blob/main/values.yaml[https://github.com/jdtate101/ollama/blob/main/values.yaml](https://github.com/jdtate101/ollama/blob/main/values.yaml)
-and adjust for persistence and include GPU if you have one (recommended)
+download values from this repo and adjust for persistence and include GPU if you have one (recommended)
 
 `helm install ollama ollama-helm/ollama -f values.yaml -n ollama`
 
-Next create the configmap in the ollama namespace called script-config-map.yaml and apply it:
+Next download and create the configmap in the ollama namespace (called script-config-map.yaml) and apply it:
 
 `oc apply -f script-config-map.yaml -n ollama`
 
-After the Ollama deplyment comes up you need to adjust it to match the deployment example, specifically the volumeMounts and lifecycle sections:
+After the Ollama deployment comes up you need to adjust it to match the deployment example, specifically the volumeMounts and lifecycle sections:
 
 `lifecycle:
           postStart:
