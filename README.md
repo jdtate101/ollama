@@ -14,6 +14,7 @@ Create namespace for ollama
 add helm repo
 
 `helm repo add ollama-helm https://otwld.github.io/ollama-helm/`
+
 `helm repo update`
 
 download values https://github.com/jdtate101/ollama/blob/main/values.yaml[https://github.com/jdtate101/ollama/blob/main/values.yaml](https://github.com/jdtate101/ollama/blob/main/values.yaml)
