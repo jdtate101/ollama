@@ -17,4 +17,4 @@ data:
     pip install -r requirements.txt
 
     # Start the Streamlit app in the background
-    nohup streamlit run /root/.ollama/rag/chatpdf-rag-deepseek-r1/app.py > /root/.ollama/chatpdf.log 2>&1 &
+    nohup streamlit run /root/.ollama/chatpdf-rag-deepseek-r1/app.py > /root/.ollama/chatpdf.log 2>&1 &
